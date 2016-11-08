@@ -22,7 +22,7 @@ Optionally include the Facade in `config/app.php` if you'd like.
 'Sweet' => Ken\Sweetanimation\Facades\Sweetanimation::class,
 ```
 
-> Note, there is a sweet() function available, so unless you really want to use the Facade, there's no need to include it.
+> Note, there is a animation() function available, so unless you really want to use the Facade, there's no need to include it.
 
 ## Usage
 
@@ -31,15 +31,15 @@ Optionally include the Facade in `config/app.php` if you'd like.
 From your application, call the `flash` method with a message and type.
 
 ```php
-sweet()->flash('Welcome back!', 'success');
+animation()->flash('Welcome back!', 'success');
 ```
 
 Within a view, you can now check if a flash message exists and output it.
 
 ```php
-@if (sweet()->ready())
+@if (animation()->ready())
     <div class="alert-box {{ sweet()->type() }}">
-        {{ sweet()->message() }}
+        {{ animation()->message() }}
     </div>
 @endif
 ```
@@ -50,7 +50,7 @@ Within a view, you can now check if a flash message exists and output it.
 You can pass additional options to the `flash` method, which are then easily accessible within your view.
 
 ```php
-sweet()->flash('Welcome back!', 'success', [
+animation()->flash('Welcome back!', 'success', [
     'timer' => 3000,
     'text' => 'It\'s really great to see you again',
     'animate' => 'animate flash'
@@ -60,19 +60,19 @@ sweet()->flash('Welcome back!', 'success', [
 Then, in your view.
 
 ```javascript
-@if (sweet()->ready())
+@if (animation()->ready())
     <script>
         swal({
-            title: "{!! sweet()->message() !!}",
-            text: "{!! sweet()->option('text') !!}",
-            type: "{{ sweet()->type() }}",
-            @if (sweet()->option('timer'))
-                timer: {{ sweet()->option('timer') }},
+            title: "{!! animation()->message() !!}",
+            text: "{!! animation()->option('text') !!}",
+            type: "{{ animation()->type() }}",
+            @if (animation()->option('timer'))
+                timer: {{ animation()->option('timer') }},
                 showConfirmButton: false,
             @endif
-            @if (sweet()->option('animate'))
+            @if (animation()->option('animate'))
                 animation: false,
-                customClass: {{ sweet()->option('animate') }},
+                customClass: {{ animation()->option('animate') }},
                 showConfirmButton: true
             @endif
         });
