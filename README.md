@@ -53,7 +53,7 @@ You can pass additional options to the `flash` method, which are then easily acc
 animation()->flash('Welcome back!', 'success', [
     'timer' => 3000,
     'text' => 'It\'s really great to see you again',
-    'animate' => 'animate flash'
+    'animate' => 'flash'
 ]);
 ```
 
@@ -72,8 +72,8 @@ Then, in your view.
             @endif
             @if (animation()->option('animate'))
                 animation: false,
-                customClass: {{ animation()->option('animate') }},
-                showConfirmButton: true
+                customClass: "animated {!! animation()->option('animate') !!}",
+                showConfirmButton: true // optional
             @endif
         });
     </script>
